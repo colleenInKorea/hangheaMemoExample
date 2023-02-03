@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +18,11 @@ public class MemoService {
     public Memo createMemo(MemoRequestDto requestDto){
         Memo memo = new Memo(requestDto);
         memoRepository.save(memo);
-        return
+        return memo
+    }
+
+    @Transactional(readOnly = true)
+    public List<Memo> getMemos() {
+        return memoRepository.findAllByOrderByModifiedAtDesc();
     }
 }

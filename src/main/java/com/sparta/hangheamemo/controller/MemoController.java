@@ -1,5 +1,7 @@
 package com.sparta.hangheamemo.controller;
 
+import com.sparta.hangheamemo.dto.MemoRequestDto;
+import com.sparta.hangheamemo.entity.Memo;
 import com.sparta.hangheamemo.service.MemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class MemoController {
 
-    private final MemoService;
+    private final MemoService memoService;
 
     @GetMapping("/")
     public ModelAndView home() {
