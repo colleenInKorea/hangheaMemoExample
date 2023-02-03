@@ -21,8 +21,4 @@ public class Timestamped {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
-    public Memo(MemoRequestDto requestDto){
-        this.username = requestDto.getUsername();
-        this.contents = requestDto.getContents();
-    }
 }
